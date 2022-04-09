@@ -1,7 +1,6 @@
 import { Button } from 'antd';
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Client } from '../../../models/Client';
-import { Operation } from '../../../models/Operation';
 interface InfoClientType{
     client: Client,
     cb: (fullName: string, inn: string, pasport: string) => void,

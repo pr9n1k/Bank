@@ -2,7 +2,6 @@ import { Button, Form, FormInstance, Input, Select } from 'antd';
 import React, { FC } from 'react';
 import { Employee } from '../../../models/Employee';
 import { rules } from '../../../utils/rules';
-import { roleAPI } from '../../../service/roleService';
 import { inputInt } from './../../../utils/input';
 interface CreateEmployeeFormType{
     submit: () => void,
@@ -13,14 +12,15 @@ interface CreateEmployeeFormType{
     titleButton: string,
 }
 const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,submit,isLoading,titleButton}) => {
-    const {data:roles} = roleAPI.useGetAllQuery(null);
     return (
         <Form
             onFinish={submit}
             onReset={reset}
         >
             <Form.Item
+                name='name'
                 rules={[rules.required()]}
+                initialValue={employee.name as string}
             >
                 <Input 
                     placeholder='Введите имя..'
@@ -30,7 +30,9 @@ const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,sub
                 />
             </Form.Item>
             <Form.Item
+                name='patronymic'
                 rules={[rules.required()]}
+                initialValue={employee.patronymic as string}
             >
                 <Input 
                     placeholder='Введите отчество..'
@@ -40,7 +42,9 @@ const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,sub
                 />
             </Form.Item>
             <Form.Item
+                name='surname'
                 rules={[rules.required()]}
+                initialValue={employee.surname as string}
             >
                 <Input 
                     placeholder='Введите фамилию..'
@@ -50,7 +54,9 @@ const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,sub
                 />
             </Form.Item>
             <Form.Item
+                name='login'
                 rules={[rules.required()]}
+                initialValue={employee.login as string}
             >
                 <Input 
                     placeholder='Введите логин..'
@@ -60,7 +66,9 @@ const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,sub
                 />
             </Form.Item>
             <Form.Item
+                name='password'
                 rules={[rules.required()]}
+                initialValue={employee.password as string}
             >
                 <Input 
                     placeholder='Введите пароль..'
@@ -70,7 +78,9 @@ const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,sub
                 />
             </Form.Item>
             <Form.Item
+                name='phone'
                 rules={[rules.required()]}
+                initialValue={employee.phone as string}
             >
                 <Input 
                     placeholder='Введите телефон..'
@@ -83,36 +93,23 @@ const EmployeeForm:FC<CreateEmployeeFormType> = ({employee,reset,setEmployee,sub
                 />
             </Form.Item>
             <Form.Item
+                name='role'
                 rules={[rules.required()]}
+                initialValue={employee.role as string}
             >
                 <Select
                     placeholder='Выберите роль'
                     onChange={e => setEmployee({...employee,role:e})}
-                    defaultValue={employee.role}
+                    // defaultValue={employee.role}
                 >
-                    {/* {roles?.map(((role,i) => {
-                        return <Select.Option
-                            key={i}
-                            value={role.value}
-                        >
-                            {role.title}
-                        </Select.Option>
-                    }
-                    ))}  */}
                     <Select.Option
                         key={1}
-                        value='ADMIN'
-                    >
-                        Админ
-                    </Select.Option>
-                    <Select.Option
-                        key={2}
                         value='OPERATOR'
                     >
                         Операционист
                     </Select.Option>
                     <Select.Option
-                        key={3}
+                        key={2}
                         value='CASHIER'
                     >
                         Кассир

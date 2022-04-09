@@ -1,5 +1,5 @@
-import { Space, Button, Table, Popconfirm, message } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { Button, Table, Popconfirm } from 'antd';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { employeeAPI } from './../../../service/employeeService';
 import { Employee } from './../../../models/Employee';
@@ -13,7 +13,7 @@ const DepartmentTableEmployee = () => {
     const {data:employee,isLoading:isLoadDep} = employeeAPI.useGetByDepartmentQuery(depId)
     const {data:employeeNotDep,isLoading:isLoadNotDep} = employeeAPI.useGetByDepartmentQuery('not')
 
-    const [update,{isLoading}] = employeeAPI.useUpdateMutation();
+    const [update] = employeeAPI.useUpdateMutation();
     const columns = [
         {
             title: 'Фамилия',

@@ -5,7 +5,7 @@ import clientControllers from '../controllers/clientControllers.js'
 const clientRouter = new Router();
 
 clientRouter.post('/add',clientControllers.add);
-clientRouter.post('/:id/create-account',clientControllers.createAccount);
+clientRouter.post('/create-account',clientControllers.createAccount);
 clientRouter.get('/get',clientControllers.get);
 clientRouter.get('/get-account',clientControllers.getAccounts);
 clientRouter.get('/get/:id',clientControllers.getById);

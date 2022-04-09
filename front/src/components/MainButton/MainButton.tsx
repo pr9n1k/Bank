@@ -16,14 +16,14 @@ const MainButton = () => {
         }
     }
     const onClickCashier = () => {
-        if(isVatification('CASHIER',employee?.role as string) && employee?.idDepartment != 'not'){
+        if(isVatification('CASHIER',employee?.role as string) && employee?.idDepartment !== 'not'){
             router('/cashier')
         }else{
             message.warning('У Вас нет прав доступа!');
         }
     }
     const onClickOperator = () => {
-        if(isVatification('OPERATOR',employee?.role as string) && employee?.idDepartment != 'not'){
+        if(isVatification('OPERATOR',employee?.role as string) && employee?.idDepartment !== 'not'){
             router('/operator')
         }else{
             message.warning('У Вас нет прав доступа!');

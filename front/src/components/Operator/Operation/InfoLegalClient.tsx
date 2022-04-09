@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Client } from '../../../models/Client';
 import { Legal } from '../../../models/Legal';
-import { Operation } from '../../../models/Operation';
 import { clientAPI } from './../../../service/clientService';
 import InfoClient from './InfoClient';
 interface InfoLegalClientType{

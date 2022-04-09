@@ -3,9 +3,6 @@ import { Account } from './../../../models/Account';
 import ArrivalForm from './ArrivalForm';
 import { Operation } from './../../../models/Operation';
 import { nowDate } from '../../../utils/date';
-import { clientAPI } from './../../../service/clientService';
-import { departmentAPI } from './../../../service/department';
-import { employeeAPI } from './../../../service/employeeService';
 import { Col, Row } from 'antd';
 interface ArrivalType{
     account: Account

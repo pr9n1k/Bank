@@ -8,7 +8,6 @@ import Operator from '../pages/Operator';
 import CreateEmployee from './Admin/Employee/CreateEmployee';
 import AdminMain from './Admin/AdminMain';
 import Employee from './Admin/Employee/Employee'
-import NotFound from './../pages/NotFound';
 import CashierMain from './Cashier/CashierMain';
 import CreateClient from './Operator/Client/CreateClient';
 import OperatorMain from './Operator/OperatorMain';
@@ -42,7 +41,7 @@ const AppRouter = () => {
                 <Route index element={<CashierMain />} />
                 <Route path='communal' element={<Communal />} />
                 <Route path='payments' element={<Payments />} />
-                <Route path='balance' element={<Balance />} />
+                <Route path='balance' element={<Balance isOperator={false}/>} />
             </Route>
             <Route path='operator' element={<Operator/>} >
                 <Route index element={<OperatorMain />} />
@@ -52,7 +51,7 @@ const AppRouter = () => {
                     <Route path='create-account' element={<CreateAccount />} />    
                 </Route>
                 <Route path='operation' element={<Operation />} />
-                <Route path='balance' element={<Balance />} />
+                <Route path='balance' element={<Balance isOperator={true}/>} />
             </Route>
             <Route path='/login' element={<Login/>} />
             <Route path="*" element={<Main/>} />

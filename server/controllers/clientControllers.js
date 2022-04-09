@@ -29,8 +29,7 @@ class clientControllers{
     }
     async createAccount(req,res,next){
         try{
-            const idObject = req.params.id;
-            const {value,typeAccount} = req.body;
+            const {value,typeAccount,idObject} = req.body;
             const account = await clientService.createAccount(idObject,value,typeAccount);
             return res.json(account);
         }catch(e){

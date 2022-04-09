@@ -4,7 +4,6 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import authRouter from './router/authRouter.js';
 import employeeRouter from './router/employeeRouter.js';
-// import roleRouter from './router/roleRouter.js';
 import clientRouter from './router/clientRouter.js';
 import operationRouter from './router/operationRouter.js';
 import departmentRouter from './router/departmentRouter.js';
@@ -23,7 +22,6 @@ app.use(cors({
 }))
 app.use('/auth',authRouter);
 app.use('/employee',employeeRouter);
-// app.use('/role',roleRouter);
 app.use('/client',clientRouter);
 app.use('/operation',operationRouter);
 app.use('/department',departmentRouter);

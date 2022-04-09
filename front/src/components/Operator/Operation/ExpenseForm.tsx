@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Button, Form, Input } from 'antd';
 import { inputIntAndDot } from '../../../utils/input';
 import { rules } from '../../../utils/rules';

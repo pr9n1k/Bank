@@ -9,9 +9,9 @@ export const accountAPI = createApi({
     endpoints:(build) => ({
         add: build.mutation<Account,{id:String,value: [{currency:string, money: string}], typeAccount: string}>({
             query:({id,value,typeAccount}) => ({
-                url:`client/${id}/create-account`,
+                url:`client/create-account`,
                 method:'POST',
-                body:{value,typeAccount}
+                body:{value,typeAccount,idObject:id}
             }),
             invalidatesTags:['Account']
         }),

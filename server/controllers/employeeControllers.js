@@ -32,6 +32,15 @@ class employeeController{
         }
     }
 
+    async getAdmin(req,res,next){
+        try {
+            const admin = await employeeService.getAdmin();
+            return res.json(admin)
+        } catch (e) {
+            next(e);
+        }
+    }
+
     async getById(req,res,next){
         try{
             const id = req.params.id;

@@ -27,8 +27,6 @@ const Employee = () => {
     }
 
     const hundlerDelete = () => {
-        // console.log(employee?._id);
-        
         deleteById(employee?._id as string);
         navigate('/admin/employee');
     }

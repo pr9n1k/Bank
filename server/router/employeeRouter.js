@@ -9,5 +9,6 @@ employeeRouter.get('/get/:id',employeeControllers.getById);
 employeeRouter.get('/get/department/:id',employeeControllers.getByDepartament);
 employeeRouter.put('/update',employeeControllers.update)
 employeeRouter.delete('/delete',employeeControllers.deleteById)
+employeeRouter.get('/admin',employeeControllers.getAdmin)
 
 export default employeeRouter;

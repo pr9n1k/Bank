@@ -1,10 +1,12 @@
-import { Col, Row } from 'antd';
-import React from 'react';
+import { Button, Col, Row } from 'antd';
+import React, { FC } from 'react';
 import { Account } from '../../models/Account';
 import { departmentAPI } from './../../service/department';
 import TableBalance from './TableBalance';
-
-const Balance = () => {
+interface BalanceType{
+    isOperator: boolean
+}
+const Balance:FC<BalanceType> = ({isOperator}) => {
     const id = localStorage.getItem('user');
     const {data:account,isLoading,error} = departmentAPI.useGetAccountByEmployeeQuery(id as string);
     if(isLoading){
@@ -21,6 +23,14 @@ const Balance = () => {
                     <TableBalance account={account || {} as Account}/>
                 </Col>
             </Row>
+            {isOperator && 
+                <Row>
+                    <Col span={12} offset={6}>
+                        <Button>Отдать деньги</Button>
+                        <Button>Заказать деньги</Button>
+                    </Col>
+                </Row>
+            }
         </>
     );
 }

@@ -22,6 +22,7 @@ const EmployeeUpdate:FC<EmployeeUpdateType> = ({setVisible,thisEmployee}) => {
     const reset = () => {
         setVisible(false);
     }
+    
     return (
         <>
             <h1 className='h1 title'>Обновление</h1>

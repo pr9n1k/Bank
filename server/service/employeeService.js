@@ -16,8 +16,7 @@ class employeeService{
             throw createError(400,'Пользователь с таким номером телефона уже существует')
         }
 
-        const hashPassword = await bcrypt.hash(password,3);
-        const employee = await Employee.create({name,patronymic,surname,login,password: hashPassword, phone, role});
+        const employee = await Employee.create({name,patronymic,surname,login,password, phone, role});
 
         const employeeDto = new EmployeeDto(employee);
         return{...employeeDto};
@@ -25,8 +24,13 @@ class employeeService{
 
     async get(limit,page){
         const totalCount = await Employee.count();
-        const employee = await Employee.find().skip(Number(page*limit)).limit(limit);
+        const employee = await Employee.find({$nor:[{role:'ADMIN'}]}).skip(Number(page*limit)).limit(limit);
         return {employee,totalCount};
+    }
+
+    async getAdmin(){
+        const admin = await Employee.findOne({role:'ADMIN'});
+        return admin;
     }
 
     async getById(id){
@@ -59,8 +63,7 @@ class employeeService{
         employee.phone = phone;
         employee.role = role;
         if(password && password !== employee.password){
-            const hashPassword = await bcrypt.hash(password,3);
-            employee.password = hashPassword;
+            employee.password = password;
         }
 
 

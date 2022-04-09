@@ -2,14 +2,12 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { clientAPI } from '../service/clientService';
 import { authAPI } from './../service/authService';
 import { employeeAPI } from './../service/employeeService';
-import { roleAPI } from './../service/roleService';
 import { departmentAPI } from './../service/department';
 import { operationAPI } from './../service/operationServise';
 import { legalAPI } from '../service/legalService';
 import { accountAPI } from '../service/accountService';
 
 const rootReducer = combineReducers({
-    [roleAPI.reducerPath]: roleAPI.reducer,
     [authAPI.reducerPath]: authAPI.reducer,
     [employeeAPI.reducerPath]: employeeAPI.reducer,
     [clientAPI.reducerPath]: clientAPI.reducer,
@@ -27,7 +25,6 @@ export const setupStore = () => {
             .concat(
               employeeAPI.middleware,
               authAPI.middleware,
-              roleAPI.middleware,
               clientAPI.middleware,
               departmentAPI.middleware,
               operationAPI.middleware,

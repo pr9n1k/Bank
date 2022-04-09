@@ -1,9 +1,8 @@
 import { Button, Col, Form, Input, Row } from 'antd';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { rules } from '../../../utils/rules';
 import { inputInt, inputIntAndDot } from '../../../utils/input';
 import { Communal } from '../../../models/Communal';
-import { useCommunal } from '../../../hooks/useCommunal';
 import { legalAPI } from './../../../service/legalService';
 interface CommunalDataFormType{
     communal: Communal,

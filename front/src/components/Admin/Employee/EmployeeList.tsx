@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 import EmployeeItem from './EmployeeItem';
 import { employeeAPI } from './../../../service/employeeService';
 import { Link } from 'react-router-dom';
-import EmployeeFilter from './EmployeeFilter';
-import useEmployee from './../../../hooks/useEmployee';
-import { Employee } from '../../../models/Employee';
 
 const EmployeeList = () => {
     const [page,setPage] = useState(1); 
