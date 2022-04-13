@@ -7,7 +7,13 @@ export const employeeAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000'}),
     tagTypes: ['Employee'],
     endpoints:(build) => ({
-        get: build.query<{employee:Employee[],number: number},{limit: number, page:number}>({
+        get: build.query<{
+            employee:Employee[],
+            number: number
+        },{
+            limit: number, 
+            page:number
+        }>({
             query: (args = {limit:1, page: 1})=> ({
                 url: `/employee/get?limit=${args.limit}&page=${args.page - 1}`
             }),

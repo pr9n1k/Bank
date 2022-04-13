@@ -1,5 +1,6 @@
 import React from 'react';
 import MainButton from '../components/MainButton/MainButton';
+import Page from '../components/page';
 import { useTakeEmployee } from './../hooks/useTakeEmployee';
 
 const Main = () => {
@@ -8,9 +9,9 @@ const Main = () => {
         return <h1>Загузка...</h1>
     }
     return (
-        <>
+        <Page>
             <MainButton />
-        </>
+        </Page>
     );
 }
 

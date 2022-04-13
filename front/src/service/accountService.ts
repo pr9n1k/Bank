@@ -7,11 +7,23 @@ export const accountAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000'}),
     tagTypes: ['Account'],
     endpoints:(build) => ({
-        add: build.mutation<Account,{id:String,value: [{currency:string, money: string}], typeAccount: string}>({
-            query:({id,value,typeAccount}) => ({
+        add: build.mutation<Account,{
+            id:String,
+            value: [{currency:string, money: string}], 
+            typeAccount: string
+        }>({
+            query:({
+                id,
+                value,
+                typeAccount
+            }) => ({
                 url:`client/create-account`,
                 method:'POST',
-                body:{value,typeAccount,idObject:id}
+                body:{
+                    value,
+                    typeAccount,
+                    idObject:id
+                }
             }),
             invalidatesTags:['Account']
         }),

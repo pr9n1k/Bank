@@ -14,7 +14,13 @@ export const clientAPI = createApi({
             }),
             invalidatesTags:['Client']
         }),
-        get: build.query<{client: Client[],number: number},{limit: number, page:number}>({
+        get: build.query<{
+            client: Client[],
+            number: number
+        },{
+            limit: number, 
+            page:number
+        }>({
             query:(args = {limit:1, page: 1}) => ({
                 url:`/client/get?limit=${args.limit}&page=${args.page - 1}`,
             }),

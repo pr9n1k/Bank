@@ -1,12 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { Communal } from "../models/Communal";
+import { Encashment } from "../models/Encashment";
 import { Operation } from "../models/Operation";
 
 
 export const operationAPI = createApi({
     reducerPath: 'operationAPI',
     baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000'}),
-    tagTypes: ['Operation','Account','Communal'],
+    tagTypes: ['Operation','Account','Communal','Encashment'],
     endpoints: build => ({
         add: build.mutation<Operation,Operation>({
             query: (operation) => ({
@@ -16,7 +17,14 @@ export const operationAPI = createApi({
             }),
             invalidatesTags:['Operation']
         }),
-        getNotConfirm: build.query<{operation:Operation[],number:number},{limit: number, page:number,idEmployee:string}>({
+        getNotConfirm: build.query<{
+            operation:Operation[],
+            number:number
+        },{
+            limit: number, 
+            page:number,
+            idEmployee:string
+        }>({
             query: (args = {limit:1, page: 1, idEmployee:''}) => ({
                 url: `/operation/not-confirm?limit=${args.limit}&page=${args.page - 1}&id=${args.idEmployee}`
             }),
@@ -42,6 +50,32 @@ export const operationAPI = createApi({
                 body: communal
             }),
             invalidatesTags:['Communal','Account']
+        }),
+        addEncashment: build.mutation<Encashment,Encashment>({
+            query: (encashment) => ({
+                url: 'operation/encashment',
+                method: 'POST',
+                body: encashment
+            }),
+            invalidatesTags:['Encashment']
+        }),
+        getByIdEncashment: build.query<Encashment,string>({
+            query: (id) => ({
+                url: `operation/encashment/${id}`
+            }),
+            providesTags:['Encashment']
+        }),
+        getAdmin: build.query<Encashment[],void>({
+            query: _ => ({
+                url: 'operation/encashment-admin'
+            }),
+            providesTags:['Encashment']
+        }),
+        getCashier: build.query<Encashment[],void>({
+            query: _ => ({
+                url: 'operation/encashment-cashier'
+            }),
+            providesTags:['Encashment']
         })
     })
 })

@@ -22,6 +22,9 @@ import EmployeeList from './Admin/Employee/EmployeeList';
 import Communal from './Cashier/Сommunal/Communal';
 import Payments from './Cashier/Payments/Payments';
 import Balance from './Balance/Balance';
+import EncashmentCreate from './Encashment/EncashmentCreate';
+import EncashmentList from './Encashment/EncashmentList';
+import Encashment from './Encashment/Encashment';
 
 
 const AppRouter = () => {   
@@ -36,6 +39,8 @@ const AppRouter = () => {
                 <Route path='department' element={<DepartmentList />} />
                 <Route path='department/create' element={<DepartmentCreateForm />} />
                 <Route path='department/:id' element={<Department />} />
+                <Route path='encashment' element={<EncashmentList />} />
+                <Route path='encashment/:id' element={<Encashment />} />
             </Route>
             <Route path='cashier' element={<Cashier/>} >
                 <Route index element={<CashierMain />} />
@@ -51,6 +56,7 @@ const AppRouter = () => {
                     <Route path='create-account' element={<CreateAccount />} />    
                 </Route>
                 <Route path='operation' element={<Operation />} />
+                <Route path='encashment' element={<EncashmentCreate />} />
                 <Route path='balance' element={<Balance isOperator={true}/>} />
             </Route>
             <Route path='/login' element={<Login/>} />

@@ -8,7 +8,11 @@ export const departmentAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000'}),
     tagTypes:['Department','Employee','Account'],
     endpoints: (build) => ({
-        add: build.mutation<Department,{number: string, city: string, typeAccount:string}>({
+        add: build.mutation<Department,{
+            number: string, 
+            city: string, 
+            typeAccount:string
+        }>({
             query: (department) => ({
                 url: '/department/add',
                 method: 'POST',

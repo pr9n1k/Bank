@@ -1,13 +1,16 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
+import Page from '../components/page';
 
 const Login = () => {
     return (
-        <div className='login__body'>
-            <div className="login__body-content">
-                <LoginForm />
+        <Page>
+            <div className='login__body'>
+                <div className="login__body-content">
+                    <LoginForm />
+                </div>
             </div>
-        </div>
+        </Page>
     );
 }
 

@@ -21,12 +21,7 @@ function App(){
       isAuth,
       setIsAuth
     }}>
-      <div className="body">
-          <Navbar />
-          <div className='main'>
-            <AppRouter />
-          </div>
-      </div>
+        <AppRouter />
     </AuthContext.Provider>
   )
 }

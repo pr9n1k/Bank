@@ -1,5 +1,4 @@
 import Employee from "../models/Employee.js";
-import bcrypt from 'bcrypt';
 import EmployeeDto from './../dtos/employee-dto.js';
 import createError from 'http-errors';
 

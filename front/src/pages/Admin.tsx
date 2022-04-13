@@ -3,45 +3,54 @@ import Layout, { Content } from 'antd/lib/layout/layout';
 import Sider from 'antd/lib/layout/Sider';
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
+import Page from '../components/page';
 
 const AdminMainRouter = () => {
     const router = useNavigate();
     return (
-        <Content>
-            <Layout style={{ height: '100%' }}>
-                <Sider collapsible>
-                    <Menu
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        defaultOpenKeys={['sub1']}
-                        style={{ height: '100%' }}
-                    >
-                        
-                        <Menu.Item 
-                            key="1"
-                            onClick={() => router('/admin')}
+        <Page>
+            <Content>
+                <Layout style={{ height: '100%' }}>
+                    <Sider collapsible>
+                        <Menu
+                            mode="inline"
+                            defaultSelectedKeys={['1']}
+                            defaultOpenKeys={['sub1']}
+                            style={{ height: '100%' }}
                         >
-                            Главная
-                        </Menu.Item>
-                        <Menu.Item 
-                            key="2"
-                            onClick={() => router('/admin/employee')}
-                        >
-                            Сотрудники
-                        </Menu.Item>
-                        <Menu.Item 
-                            key="3"
-                            onClick={() => router('/admin/department')}
-                        >
-                            Отделы
-                        </Menu.Item>
-                    </Menu>
-                </Sider>
-                <Content style={{ padding: '0 24px', minHeight: 280 }}>
-                    <Outlet />
-                </Content>
-            </Layout>
-        </Content>
+                            
+                            <Menu.Item 
+                                key="1"
+                                onClick={() => router('/admin')}
+                            >
+                                Главная
+                            </Menu.Item>
+                            <Menu.Item 
+                                key="2"
+                                onClick={() => router('/admin/employee')}
+                            >
+                                Сотрудники
+                            </Menu.Item>
+                            <Menu.Item 
+                                key="3"
+                                onClick={() => router('/admin/department')}
+                            >
+                                Отделы
+                            </Menu.Item>
+                            <Menu.Item 
+                                key="4"
+                                onClick={() => router('/admin/encashment')}
+                            >
+                                Инкассация
+                            </Menu.Item>
+                        </Menu>
+                    </Sider>
+                    <Content style={{ padding: '0 24px', minHeight: 280 }}>
+                        <Outlet />
+                    </Content>
+                </Layout>
+            </Content>
+        </Page>
     );
 }
 

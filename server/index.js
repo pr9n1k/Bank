@@ -36,7 +36,7 @@ app.use((error, req, res, next) => {
       message: error.message,
       stack: error.stack
     })
-  })
+})
 
 
 const start = async () =>{

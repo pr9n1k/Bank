@@ -16,7 +16,6 @@ const LoginForm = () => {
     }
     return (
         <>
-            
             <h1>Вход</h1>
             <Form
                 onFinish={submit}

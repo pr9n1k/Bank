@@ -7,7 +7,13 @@ export const legalAPI = createApi({
     baseQuery: fetchBaseQuery({baseUrl:'http://localhost:5000'}),
     tagTypes: ['Account','Legal'],
     endpoints: build => ({
-        add: build.mutation<Legal,{idClient:string, title:string,inn:string,typeAccount:string,communalType:string}>({
+        add: build.mutation<Legal,{
+            idClient:string, 
+            title:string,
+            inn:string,
+            typeAccount:string,
+            communalType:string
+        }>({
             query:(legal) => ({
                 url: '/legal/add',
                 method:'POST',
